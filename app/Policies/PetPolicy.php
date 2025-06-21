@@ -10,10 +10,10 @@ class PetPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(Usuario $user) 
-    {
-        return $user->hasRole('admin') || $user->hasRole('manager');
-    }
+    public function view(Usuario $user, Pet $pet)
+{
+    return $user->hasRole('admin') || $user->hasRole('manager') || $user->hasRole('viewer');
+}
 
     public function create(Usuario $user)
     {
@@ -29,4 +29,5 @@ class PetPolicy
     {
         return $user->hasRole('admin');
     }
+    
 }

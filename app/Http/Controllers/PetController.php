@@ -8,15 +8,17 @@ use Illuminate\Http\Request;
 class PetController extends Controller
 {
     public function index()
-    {
-        $pets = Pet::all();
-        return view('pets.index', compact('pets'));
-    }
+{
+    $pets = Pet::all();
+    $titulo = "Listado de Mascotas";
+    return view('pets.index', compact('pets', 'titulo'));
+}
 
-    public function create()
-    {
-        return view('pets.create');
-    }
+public function create()
+{
+    $titulo = "Crear Nueva Mascota";
+    return view('pets.create', compact('titulo'));
+}
 
     public function store(Request $request)
     {
@@ -34,11 +36,19 @@ class PetController extends Controller
         return redirect()->route('pets.index')->with('success', 'Mascota creada correctamente');
     }
 
-    public function edit(Pet $pet)
+    public function show(Pet $pet)
     {
-        return view('pets.edit', compact('pet'));
+        view()->share('hide_logo', true); 
+        $this->authorize('view', $pet);
+        return view('pets.show', compact('pet'))->with('titulo', 'Detalle de Mascota');
     }
 
+    public function edit(Pet $pet)
+{
+    $titulo = "Editar Mascota: " . $pet->name;
+    $ruta = 'pets.edit'; // Nombre de la ruta para el formulario de edición
+    return view('pets.edit', compact('pet', 'titulo', 'ruta'));
+}
     public function update(Request $request, Pet $pet)
     {
         $validated = $request->validate([
@@ -60,8 +70,9 @@ class PetController extends Controller
         $pet->delete();
         return redirect()->route('pets.index')->with('success', 'Mascota eliminada correctamente');
     }
-    public function externalData()
+ public function externalData()
 {
-    return view('pets.external_data');
+    $titulo = "Datos Externos de Mascotas";
+    return view('pets.external_data', compact('titulo'));
 }
 }
