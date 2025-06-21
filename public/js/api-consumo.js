@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
     axios.get('https://api.publicapis.org/entries')
         .then(response => {
             const entries = response.data.entries.slice(0, 5);
-            
-            // Mostrar en lista
+
+
             let html = '<ul class="list-group mt-3">';
             entries.forEach(e => {
                 html += `<li class="list-group-item"><strong>${e.API}</strong> - ${e.Description}</li>`;
-                
-                // Añadir marcador aleatorio para cada entrada (ejemplo)
+
+
                 const lat = Math.random() * 180 - 90;
                 const lng = Math.random() * 360 - 180;
                 L.marker([lat, lng]).addTo(map)

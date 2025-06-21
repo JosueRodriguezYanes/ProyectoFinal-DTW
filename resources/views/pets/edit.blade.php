@@ -6,7 +6,7 @@
         <div class="card-header bg-warning text-white">
             <h2 class="mb-0"><i class="fas fa-edit"></i> Editar Mascota</h2>
         </div>
-        
+
         <div class="card-body">
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -23,7 +23,7 @@
                 @method('PUT')
 
 
-             
+
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
@@ -71,7 +71,7 @@
                        <div class="col-md-4 mb-3 d-flex align-items-end">
     <input type="hidden" name="vaccinated" value="0">
     <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" 
+        <input class="form-check-input" type="checkbox" role="switch"
                name="vaccinated" id="vaccinated" value="1"
                @if(old('vaccinated', $pet->vaccinated ?? false)) checked @endif>
         <label class="form-check-label" for="vaccinated">Vacunado</label>
@@ -92,22 +92,20 @@
 </div>
 
 <script>
-// Validación del formulario (igual que en create)
 (function() {
     'use strict';
-    
+
     const form = document.getElementById('petForm');
-    
+
     form.addEventListener('submit', function(event) {
         if (!form.checkValidity()) {
             event.preventDefault();
             event.stopPropagation();
         }
-        
+
         form.classList.add('was-validated');
     }, false);
-    
-    // Validación personalizada para la edad
+
     const ageInput = document.getElementById('age');
     ageInput.addEventListener('input', function() {
         if (ageInput.validity.rangeUnderflow) {

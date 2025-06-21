@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <h1>Datos de API Externa</h1>
-    
+
     <button id="fetchData" class="btn btn-primary mb-3">Obtener Datos</button>
-    
+
     <div id="apiResults" class="row"></div>
 </div>
 
@@ -16,10 +16,10 @@ document.getElementById('fetchData').addEventListener('click', function() {
         .then(response => {
             const resultsDiv = document.getElementById('apiResults');
             resultsDiv.innerHTML = '';
-            
-            // Mostrar solo los primeros 5 resultados
+
+
             const limitedData = response.data.slice(0, 5);
-            
+
             limitedData.forEach(breed => {
                 const card = `
                     <div class="col-md-4 mb-3">
