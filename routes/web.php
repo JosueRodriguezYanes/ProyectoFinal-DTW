@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\Registro\RegistroController;
 
 use App\Http\Controllers\Backend\Dashboard\DashboardController;
 use App\Http\Controllers\PetController;
+use App\Http\Controllers\MapController;
 
 
 // --- LOGIN ---
@@ -60,4 +61,5 @@ Route::get('/admin/dashboard', [DashboardController::class,'vistaDashboard'])->n
 
 Route::resource('pets', PetController::class);
 
+Route::get('/map', [MapController::class, 'index'])->name('map.index');
 

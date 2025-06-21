@@ -41,6 +41,13 @@
         <i class="far fa-circle nav-icon"></i>
         <p>Mascotas</p>
     </a>
+
+    <li class="nav-item">
+<a href="{{ route('map.index') }}" target="frameprincipal" class="nav-link">
+        <i class="far fa-circle nav-icon"></i>
+        <p>Api Map</p>
+    </a>
+</li>
 </li>
 
                     </ul>
