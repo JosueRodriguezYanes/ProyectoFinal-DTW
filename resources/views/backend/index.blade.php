@@ -14,6 +14,9 @@
     <link href="{{ asset('css/adminlte.min.css') }}" type="text/css" rel="stylesheet" />
     <!-- Mensajes Toast -->
     <link href="{{ asset('css/toastr.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/pets.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/validaciones.js') }}"></script>
+<script src="{{ asset('js/localstorage.js') }}"></script>
     @yield('content-admin-css')
 </head>
 

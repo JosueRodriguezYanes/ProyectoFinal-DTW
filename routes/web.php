@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\Roles\PermisoController;
 use App\Http\Controllers\Backend\Perfil\PerfilController;
 use App\Http\Controllers\Backend\Configuracion\ConfiguracionController;
 use App\Http\Controllers\Backend\Registro\RegistroController;
+use App\Http\Controllers\PetController;
 
 
 
@@ -58,3 +59,16 @@ Route::get('sin-permisos', [ControlController::class,'indexSinPermiso'])->name('
 Route::get('/admin/dashboard', [DashboardController::class,'vistaDashboard'])->name('admin.dashboard.index');
 
 
+
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+// Ruta resource para pets (asegúrate de que esté definida ANTES de los middlewares si usas agrupaciones)
+Route::resource('pets', PetController::class);
+
+// Ruta para la API externa
+Route::get('/pets/external-data', [PetController::class, 'externalData'])->name('pets.external');
+
+// Ruta de inicio (opcional)
+Route::get('/', function () {
+    return redirect()->route('pets.index');
+});

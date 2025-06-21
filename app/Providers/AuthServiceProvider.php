@@ -13,8 +13,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        //
-    ];
+    Pet::class => PetPolicy::class,
+];
 
     /**
      * Register any authentication / authorization services.

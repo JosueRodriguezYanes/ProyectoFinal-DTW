@@ -1,0 +1,12 @@
+h1 {
+  color: #4e73df;
+}
+.table-hover tbody tr:hover {
+  background-color: #e2e8f0;
+}
+.list-group-item {
+  background-color: #f8f9fc;
+  border: none;
+  margin: 0.2rem 0;
+  border-radius: 0.5rem;
+}
